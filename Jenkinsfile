@@ -22,7 +22,7 @@ pipeline {
         }
 
         stage('Test'){
-             agent {
+            agent {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
@@ -30,14 +30,10 @@ pipeline {
             }
             steps{
                 sh '''
-                    tset -f build/index.html
+                    test -f build/index.html
                     npm test
                 '''
-                
             }
-
-
         }
-
     }
 }
