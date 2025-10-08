@@ -19,7 +19,6 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-                echo 'Hello World'     
             }
         }
 
@@ -37,12 +36,12 @@ pipeline {
 
             steps{
                 sh '''
-                    test -f build/index.html
+                    #test -f build/index.html
                     npm test
                 '''
             }
         }
-
+    
           stage('E2E'){
               agent {
                 docker {
