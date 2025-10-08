@@ -3,16 +3,14 @@ pipeline {
 
     stages {
         stage('Build') {
-
-            agent{
-                docker{
+            agent {
+                docker {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-
-
             }
-            steps{
+            
+            steps {                    // ✅ 只有一個 steps
                 sh '''
                     ls -la
                     node --version
@@ -21,16 +19,7 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-
-            }
-
-
-
-
-
-
-            steps {
-                echo 'Hello World'
+                echo 'Hello World'     // ✅ 合併到同一個 steps
             }
         }
     }
