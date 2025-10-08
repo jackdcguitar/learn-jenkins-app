@@ -10,7 +10,7 @@ pipeline {
                 }
             }
 
-            steps {                    // ✅ 只有一個 steps
+            steps {                    
                 sh '''
                     ls -la
                     node --version
@@ -19,16 +19,24 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-                echo 'Hello World'     // ✅ 合併到同一個 steps
+                echo 'Hello World'     
             }
         }
-
         stage('Test'){
-            steps{
-                sh 'test -f build/index.html'
+              agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
             }
 
-        }
 
+            steps{
+                sh '''
+                    test -f build/index.html
+                    npm test
+                '''
+            }
+        }
     }
 }
