@@ -9,7 +9,7 @@ pipeline {
                     reuseNode true
                 }
             }
-            
+
             steps {                    // ✅ 只有一個 steps
                 sh '''
                     ls -la
@@ -22,5 +22,19 @@ pipeline {
                 echo 'Hello World'     // ✅ 合併到同一個 steps
             }
         }
+
+        stage('Test'){
+            steps{
+                echo 'Test stage'
+            }
+
+
+
+
+
+        }
+
+
+
     }
 }
