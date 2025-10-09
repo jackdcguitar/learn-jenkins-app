@@ -55,7 +55,7 @@ pipeline {
 
                     steps{
                         sh '''
-                        echo 'Small change'
+                        echo 'Small change2'
                         npm install  serve
                         node_modules/.bin/serve -s build &
                         sleep 10
