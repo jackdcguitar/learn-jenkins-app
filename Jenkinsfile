@@ -135,11 +135,10 @@ pipeline {
                     reuseNode true
                 }
             }
-
                 environment {                
-                  CI_ENVIROMENT_URL ='https://radiant-treacle-ae9ba0.netlify.app'
+                  CI_ENVIRONMENT_URL  ='https://radiant-treacle-ae9ba0.netlify.app'
                 }
-
+                
 
 
             steps {
