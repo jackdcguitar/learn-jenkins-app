@@ -4,7 +4,7 @@ pipeline {
     environment{
         
         NETLIFY_SITE_ID='552dee48-2a71-4d53-b9be-15d63b2fa732'
-        Netlify_auth_token=credential('Netlify-token')
+        Netlify_auth_token=credentials('Netlify-token')
     }
 
 
