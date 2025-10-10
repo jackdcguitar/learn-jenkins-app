@@ -19,7 +19,6 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
-                    reuseNode true
                 }
             }
             steps {
@@ -38,6 +37,7 @@ pipeline {
             agent{
                 docker{
                     image 'amazon/aws-cli' 
+                    reuseNode true
                     args '--entrypoint=""'   
                 }
             }
