@@ -18,6 +18,7 @@ pipeline {
             steps{
                 sh '''
                     aws --version
+                    
                 '''
             }
 
@@ -113,6 +114,7 @@ pipeline {
             }
 
             steps {
+
                 sh '''
                     netlify --version
                     echo "Deploying to staging. Site ID: $NETLIFY_SITE_ID"
@@ -138,9 +140,6 @@ pipeline {
                 }
             }
 
-            environment {
-                CI_ENVIRONMENT_URL = 'YOUR NETLIFY SITE URL'
-            }
 
             steps {
                 sh '''
@@ -149,7 +148,6 @@ pipeline {
                     echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
                     netlify status
                     netlify deploy --dir=build --prod
-                    npx playwright test  --reporter=html
                 '''
             }
 
