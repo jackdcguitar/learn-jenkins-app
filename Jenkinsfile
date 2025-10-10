@@ -29,7 +29,7 @@ pipeline {
                         aws --version
                         echo "Hello S3!">index.html
                         aws s3 cp index.html s3://${AWS_S3_BUCKET}/index.html
-                        aws s3 sync . s3://amzn-s3-demo-bucket
+                        aws s3 sync  s3://amzn-s3-demo-bucket
 
                     '''
                 }
